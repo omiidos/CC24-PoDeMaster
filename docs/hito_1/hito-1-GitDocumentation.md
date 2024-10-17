@@ -1,26 +1,34 @@
 # PoDeMaster -- Cloud Computing Project 
 *Hito 1 -- Cloud Computing Project by Omid Rajabi*
-![PoDeMaster Logo](../images/PoDeMaster-Logo.png)
+
+<img src="../images/PoDeMaster-Logo.png" alt="PoDeMaster Logo" style="width:50%;">
+
 
 ### Git Configuration
 **Config of name and email in Git**
 We have to execute the following commands in gitbash / cmd /.. in order to have our name and email associated with future commits we make. With the last two commands we can check if our changes worked. 
-![Image of Name Email Config](../images/name_email_config.png)
+
+![Image of Name Email Config](../images/git-config-user.png)
+
 
 **Generation of public/private key pair**
 In order to generate a public/private SSH key pair we have to execute the following command. It uses the ed25519 algorithm to generate the keys. If your system does not support the ed25519 algorithm, you can use RSA instead. 
 Once executed, it will ask you where you want to save the keys (I chose the default option). It will also ask you for a passphrase to make the key more secure. As a result we will get the following.
+
 ![Image of Key Pair Generation](../images/git-gen-keys.png)
 
 **Add SSH Key to SSH Agent**
 After generating the key, we need to add it to the SSH agent to manage your keys. Therefore we need to execute the following commands.
+
 ![Image of giving key to the agent](../images/git-agent-key.png)
 
 **Add Public Key to github**
+Now we need to add the generated keys to our github account.
 ![Image of adding the public key to github account](../images/github-pubKey.png)
 
 **Test**
 To verify that everything is set up correctly, we can run the following command. If correct, it should greet us with the message below.
+
 ![Image of testing if everything worked](../images/git-gen-keys.png)
 
 **Two-Factor-Authentication**
@@ -28,4 +36,5 @@ In order to enable 2FA we have to go to the settings of our github account and g
 In the section “Two-factor authentication” we can click the button “Enable two-factor authentication”. 
 You can choose if you want to do it with a authentication app like google Authenticator or if you want to do it via your phone number. 
 I chose authentication via text message.
+
 ![Image of 2fa setup](../images/github-2fa.png)
