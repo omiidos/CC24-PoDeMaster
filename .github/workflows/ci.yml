@@ -1,0 +1,33 @@
+# .github/workflows/ci.yml
+
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - main  # You can replace 'main' with 'master' or any other branch
+  pull_request:
+    branches:
+      - main  # This triggers CI on pull requests as well
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # This runs the workflow on a Linux environment
+
+    steps:
+    # Step 1: Check out the code from the repository
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    # Step 2: Set up Python
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'  # Set your Python version here
+
+    # Step 3: Install dependencies (use your Makefile or requirements.txt)
+    - name: Install dependencies
+      run: make install
+    # Step 4: Run tests using pytest
+    - name: Run tests
+      run: make test
