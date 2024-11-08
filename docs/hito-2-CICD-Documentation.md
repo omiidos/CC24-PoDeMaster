@@ -8,8 +8,8 @@ I decided to use FastAPI for our project to allow users to perform operations su
 1. [Choose Task Manager](#1-task-manager)
 2. [Choose Testing System and Assertion Library](#2-assertion-library)
 3. [Writing Tests](#3-writing-tests)
-4. [Continous Integration](#4.-continous-integration)
-5. [Verify CI Github](#5.-verify-ci-github )
+4. [Continous Integration](#4-continous-integration)
+5. [Verify CI Github](#5-verify-ci-github )
 
 ## 1. Task Manager
 I chose Make as the task manager for task automation in this project. Using Makefile allows me to define a consistent set of commands for common project tasks, simplifying setup, testing, and running the application both locally and in CI environments. I chose it, because Mark is lightweight, does not require additional dependencies, and most importantly is widely used in Python projects, which is important for me since I am using FastAPI (python-based).  
