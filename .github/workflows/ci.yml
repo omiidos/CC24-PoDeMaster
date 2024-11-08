@@ -5,7 +5,7 @@ name: Continuous Integration
 on:
   push:
     branches:
-      - main  # You can replace 'main' with 'master' or any other branch
+      - main  
   pull_request:
     branches:
       - main  # This triggers CI on pull requests as well
@@ -23,9 +23,9 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.9'  # Set your Python version here
+        python-version: '3.9'  
 
-    # Step 3: Install dependencies (use your Makefile or requirements.txt)
+    # Step 3: Install dependencies
     - name: Install dependencies
       run: make install
     # Step 4: Run tests using pytest
