@@ -1,3 +1,4 @@
+
 # Hito 2 - PoDeMaster CI
 
 ## Overview
@@ -87,4 +88,5 @@ jobs:
 ### 5. Verify CI Github 
 In order to test if the CI configuration is working, I pushed the changes to GitHub and thus triggered the workflow. 
 Under the tab 'Actions' we can monitor the status of our workflow. At the beginning I had some wrong version numbers or missing packages in the `requirements.txt` which is the reason why the first pushes did not work. After fixing everything I confirmed that everything ran sucessfully and the project was built without anything failing, since all the tests passed. 
-<img src="../images/hito-2-CI.png" alt="hito-2-CI" style="width:100%;">
+
+<img src="images/hito-2-CI.png" alt="hito-2-CI" style="width:100%;">
