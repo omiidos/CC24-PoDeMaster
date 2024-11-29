@@ -24,10 +24,18 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: '3.9'  
+    
+    
 
     # Step 3: Install dependencies
     - name: Install dependencies
       run: make install
+    # Step 4: Set PYTHONPATH to fix ModuleNotFoundError
+    - name: Set PYTHONPATH
+      run: echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
+    
     # Step 4: Run tests using pytest
     - name: Run tests
       run: make test
+
+   
