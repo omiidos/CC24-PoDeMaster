@@ -34,6 +34,14 @@ We implemented continuous integration (CI) for the second milestone. It includes
 
 For detailed information on the current status and setup, refer to the [Documentation](docs/hito-2-CICD-Documentation.md).
 
+
+### Milestone 3: Microservices Design
+We designed and implemented a microservice for managing Pokémon and users using FastAPI. The key accomplishments include:
+- **API Design:** Defined routes for user registration, login, adding, retrieving, searching, and deleting Pokémon.
+- **Logging System:** Implemented a logging system to log API activity using the `logging` module.
+- **Testing:** Implemented thorough tests for user registration, login, adding, retrieving, searching, and deleting Pokémon using `pytest`.
+
+For detailed information on the current status and setup, refer to the [Documentation](docs/hito-3-API-Documentation.md).
 ---
 
 ## Project Goal
