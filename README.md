@@ -42,6 +42,7 @@ We designed and implemented a microservice for managing Pokémon and users using
 - **Testing:** Implemented thorough tests for user registration, login, adding, retrieving, searching, and deleting Pokémon using `pytest`.
 
 For detailed information on the current status and setup, refer to the [Documentation](docs/hito-3-API-Documentation.md).
+
 ---
 
 ## Project Goal
