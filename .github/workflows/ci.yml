@@ -20,7 +20,7 @@ jobs:
           image: ghcr.io/omiidos/cc24-podemaster:latest 
           ports:
             - 8000:8000  # Expose port 8000 from the container to the host
-          options: --health-cmd="curl --fail http://localhost:8000/ || exit 1" 
+          #options: --health-cmd="curl --fail http://localhost:8000/ || exit 1" 
   
 
     steps:
