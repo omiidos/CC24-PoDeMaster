@@ -13,6 +13,15 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest  # This runs the workflow on a Linux environment
+  
+    services:
+        # Use Docker service to run the API container
+        api:
+          image: ghcr.io/omiidos/cc24-podemaster:latest 
+          ports:
+            - 8000:8000  # Expose port 8000 from the container to the host
+          options: --health-cmd="curl --fail http://localhost:8000/ || exit 1" 
+  
 
     steps:
     # Step 1: Check out the code from the repository
