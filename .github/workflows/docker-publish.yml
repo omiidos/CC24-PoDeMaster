@@ -28,4 +28,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/$cc24-podemaster:latest
+          tags: ghcr.io/cc24-podemaster:latest
