@@ -27,5 +27,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
+          outputs: type=plain
           push: true
-          tags: ghcr.io/cc24-podemaster:latest
+          tags: | 
+            ghcr.io/cc24-podemaster:latest
