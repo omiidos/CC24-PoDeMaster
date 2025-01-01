@@ -31,4 +31,4 @@ jobs:
           context: .
           push: true
           tags: | 
-            ghcr.io/cc24-podemaster:latest
+            ghcr.io/omiidos/cc24-podemaster:latest
