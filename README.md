@@ -43,6 +43,17 @@ We designed and implemented a microservice for managing Pokémon and users using
 
 For detailed information on the current status and setup, refer to the [Documentation](docs/hito-3-API-Documentation.md).
 
+
+### Milestone 4: Containers
+In this milestone we used Docker Compose to describe the infrastructure through a compose.yaml file in order to design a service that includes several containers. One of the container is exclusive to store data. We use Docker compose to describe the relationship of the containers to each other in a repeatable way.
+
+For detailed information on the current status and setup, refer to the [Documentation](docs/hito-4-Container-Documentation.md).
+
+
+
+
+
+
 ---
 
 ## Project Goal

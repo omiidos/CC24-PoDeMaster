@@ -12,7 +12,7 @@ services:
     networks:
       - app_network
     environment:
-      - DATABASE_URL=postgresql://user:password@db:5432/mydatabase
+      - DATABASE_URL=postgresql://user:password@db:5432/podemaster
 
   db:
     image: postgres:15
@@ -20,7 +20,7 @@ services:
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: mydatabase
+      POSTGRES_DB: podemaster #mydatabase
     volumes:
       - db_data:/var/lib/postgresql/data
     networks:
