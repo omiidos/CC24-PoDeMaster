@@ -6,8 +6,10 @@ In this milestone we containerized the PoDeMaster API and Database in order to t
 
 ## Application Structure
 The cluster is structured with the following main services:
-- API Service (api): Built on FastAPI, it handles all application logic and API routes.
-- Database Service (db): A PostgreSQL database for persistent data storage.
+- **API Service (api):** Built on FastAPI, it handles all application logic and API routes.
+- **Database Service (db):** A PostgreSQL database for persistent data storage.
+- **nginx:** An Nginx reverse proxy container to handle incoming requests and forward them to the FastAPI application.
+
 
 
 ## Run Application with Docker
