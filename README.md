@@ -45,10 +45,15 @@ For detailed information on the current status and setup, refer to the [Document
 
 
 ### Milestone 4: Containers
-In this milestone we used Docker Compose to describe the infrastructure through a compose.yaml file in order to design a service that includes several containers. One of the container is exclusive to store data. We use Docker compose to describe the relationship of the containers to each other in a repeatable way.
+In this milestone, we used Docker Compose to describe the infrastructure through a compose.yaml file in order to design a service that includes several containers. One of the container is exclusive to store data. We use Docker compose to describe the relationship of the containers to each other in a repeatable way.
 
 For detailed information on the current status and setup, refer to the [Documentation](docs/hito-4-Container-Documentation.md).
 
+### Hito 5 - PoDeMaster PaaS Deployment
+In this milestone, we deployed our PoDeMaster Application to the PaaS platform Fly.io. 
+We chose Fly.io for this milestone because it offers an easy and efficient way to deploy applications with minimal configuration and without great effort. Furthermore it offers Docker support and easy continous deployment integration with GitHub Actions. Additionally it is possible to connect a free Database (Supabase) to our project without paying more. 
+
+For detailed information, refer to the [Documentation](docs/hito-5-Deployment-Documentation.md).
 
 
 
