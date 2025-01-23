@@ -49,7 +49,7 @@ In this milestone, we used Docker Compose to describe the infrastructure through
 
 For detailed information on the current status and setup, refer to the [Documentation](docs/hito-4-Container-Documentation.md).
 
-### Hito 5 - PoDeMaster PaaS Deployment
+### Hito 5: PaaS Deployment
 In this milestone, we deployed our PoDeMaster Application to the PaaS platform Fly.io. 
 We chose Fly.io for this milestone because it offers an easy and efficient way to deploy applications with minimal configuration and without great effort. Furthermore it offers Docker support and easy continous deployment integration with GitHub Actions. Additionally it is possible to connect a free Database (Supabase) to our project without paying more. 
 
