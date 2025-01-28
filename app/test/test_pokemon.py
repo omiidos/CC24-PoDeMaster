@@ -313,7 +313,7 @@ def test_order_pokemon():
 
     
     # Test ordered Pokémon
-    response = client.get(f"/pokemons/user/{user_id}/ordered_pokemon", headers=headers)
+    response = client.get(f"/pokemons/user/{user_id}/ordered_pokemon", headers={"Authorization": f"Bearer {token}"})
     assert response.status_code == 200
     assert response.json() == [
         {
