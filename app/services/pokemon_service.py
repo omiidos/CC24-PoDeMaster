@@ -43,3 +43,8 @@ class PokemonService:
                 user_pokemon.remove(pokemon)
                 return True
         raise ValueError("Pokémon not found")
+    
+    async def count_unique_pokemon(self, user_id: str) -> int:
+        user_pokemon = fake_pokemon_db.get(user_id, [])
+        unique_pokemon_numbers = {pokemon.pokedex_number for pokemon in user_pokemon}
+        return len(unique_pokemon_numbers)

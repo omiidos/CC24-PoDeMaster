@@ -47,3 +47,8 @@ async def delete_pokemon(user_id: str, poke_id: str):
         return {"detail": "Pokémon deleted"}
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
+    
+@router.get("/user/{user_id}/unique_pokemon_count", summary="Get the count of unique Pokémon a user has", tags=["pokemons"])
+async def get_unique_pokemon_count(user_id: str):
+    count = await pokemon_service.count_unique_pokemon(user_id)
+    return {"unique_pokemon_count": count}

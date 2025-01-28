@@ -196,7 +196,7 @@ def test_search_pokemon():
     }]
 
 # Test the delete_pokemon function
-def test_delete_pokemon():
+def test_unique_pokemon():
     fake_users_db.clear()
     fake_pokemon_db.clear()
     # First, register and login the user
@@ -225,13 +225,42 @@ def test_delete_pokemon():
     assert "poke_id" in response.json()
     poke_id = response.json()["poke_id"]
 
-    # Delete the Pokémon
-    response = client.delete(f"/pokemons/pokemon/{poke_id}", headers={"Authorization": f"Bearer {token}"}, params={"user_id": user_id})
-    print(response.json())
-    assert response.status_code == 200
-    assert response.json() == {"detail": "Pokémon deleted"}
+    # Add another Pokémon
+    response = client.post("/pokemons/pokemon", json={
+        "pokedex_number": 1,
+        "name": "Bulbasaur",
+        "type1": "Grass",
+        "type2": "Poison",
+        "level": 5,
+        "caught_in_game": "Red",
+        "ot": "Ash",
+        "shiny": True
+    }, headers={"Authorization": f"Bearer {token}"}, params={"user_id": user_id})
+    assert response.status_code == 201
+    assert "poke_id" in response.json()
+    poke_id = response.json()["poke_id"]
 
-    # Check that the Pokémon was deleted
-    response = client.get(f"/pokemons/user/{user_id}/pokemon", headers={"Authorization": f"Bearer {token}"})
-    assert response.status_code == 404
-    assert response.json() == {"detail": "No Pokémon found"}
+    # Test unique Pokémon count
+    response = client.get(f"/pokemons/user/{user_id}/unique_pokemon_count", headers={"Authorization": f"Bearer {token}"})
+    assert response.status_code == 200
+    assert response.json() == {"unique_pokemon_count": 1}
+
+    # Add another Pokémon
+    response = client.post("/pokemons/pokemon", json={
+        "pokedex_number": 2,
+        "name": "Ivysaur",
+        "type1": "Grass",
+        "type2": "Poison",
+        "level": 16,
+        "caught_in_game": "Red",
+        "ot": "Ash",
+        "shiny": False
+    }, headers={"Authorization": f"Bearer {token}"}, params={"user_id": user_id})
+    assert response.status_code == 201
+    assert "poke_id" in response.json()
+    poke_id = response.json()["poke_id"]
+
+    # Test unique Pokémon count
+    response = client.get(f"/pokemons/user/{user_id}/unique_pokemon_count", headers={"Authorization": f"Bearer {token}"})
+    assert response.status_code == 200
+    assert response.json() == {"unique_pokemon_count": 2}
