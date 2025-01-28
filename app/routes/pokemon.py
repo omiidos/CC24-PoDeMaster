@@ -52,3 +52,9 @@ async def delete_pokemon(user_id: str, poke_id: str):
 async def get_unique_pokemon_count(user_id: str):
     count = await pokemon_service.count_unique_pokemon(user_id)
     return {"unique_pokemon_count": count}
+
+
+@router.get("/user/{user_id}/ordered_pokemon", summary="Get all Pokémon for a user ordered by Pokédex number", tags=["pokemons"])
+async def get_ordered_pokemon(user_id: str):
+    ordered_pokemon = await pokemon_service.get_ordered_pokemon(user_id)
+    return ordered_pokemon

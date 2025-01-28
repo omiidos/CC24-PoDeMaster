@@ -48,3 +48,8 @@ class PokemonService:
         user_pokemon = fake_pokemon_db.get(user_id, [])
         unique_pokemon_numbers = {pokemon.pokedex_number for pokemon in user_pokemon}
         return len(unique_pokemon_numbers)
+
+    
+    async def get_ordered_pokemon(self, user_id: str):
+        user_pokemon = fake_pokemon_db.get(user_id, [])
+        return sorted(user_pokemon, key=lambda pokemon: pokemon.pokedex_number)
