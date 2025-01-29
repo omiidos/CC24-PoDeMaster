@@ -339,3 +339,57 @@ def test_order_pokemon():
             "poke_id": response.json()[1]["poke_id"]
         }
     ]
+
+def test_pokedex_completion_percentage():
+    fake_users_db.clear()
+    fake_pokemon_db.clear()
+    # First, register and login the user
+    response = client.post("/users/register", json={"username": "testuser", "password": "testpass"})
+    assert response.status_code == 201
+    assert "user_id" in response.json()
+    user_id = response.json()["user_id"]
+
+    login_response = client.post("/users/login", data={"username": "testuser", "password": "testpass"})
+    assert login_response.status_code == 200
+    assert "access_token" in login_response.json()
+    token = login_response.json()["access_token"]
+
+    # Add a Pokémon
+    response = client.post("/pokemons/pokemon", json={
+        "pokedex_number": 2,
+        "name": "Ivysaur",
+        "type1": "Grass",
+        "type2": "Poison",
+        "level": 16,
+        "caught_in_game": "Red",
+        "ot": "Ash",
+        "shiny": False
+    }, headers={"Authorization": f"Bearer {token}"}, params={"user_id": user_id})
+    assert response.status_code == 201
+    assert "poke_id" in response.json()
+    poke_id = response.json()["poke_id"]
+
+    # Add another Pokémon
+    response = client.post("/pokemons/pokemon", json={
+        "pokedex_number": 1,
+        "name": "Bulbasaur",
+        "type1": "Grass",
+        "type2": "Poison",
+        "level": 5,
+        "caught_in_game": "Red",
+        "ot": "Ash",
+        "shiny": False
+    }, headers={"Authorization": f"Bearer {token}"}, params={"user_id": user_id})
+    assert response.status_code == 201
+    assert "poke_id" in response.json()
+    poke_id = response.json()["poke_id"]
+
+    
+    # Test percentage of pokedex completion
+    response = client.get(f"/pokemons/user/{user_id}/pokedex_completion_percentage", headers={"Authorization": f"Bearer {token}"})
+    assert response.status_code == 200
+    assert response.json() == {
+        "unique_pokemon_count": 2,
+        "max_pokemon_count": 1025,
+        "unique_pokedex_completion_percentage": (2/1025) * 100
+    }
