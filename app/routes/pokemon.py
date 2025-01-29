@@ -58,3 +58,8 @@ async def get_unique_pokemon_count(user_id: str):
 async def get_ordered_pokemon(user_id: str):
     ordered_pokemon = await pokemon_service.get_ordered_pokemon(user_id)
     return ordered_pokemon
+
+@router.get("/user/{user_id}/pokedex_completion_percentage", summary="Get the percentage of the Pokédex completed by a user", tags=["pokemons"])
+async def get_pokedex_completion_percentage(user_id: str):
+    percentages = await pokemon_service.get_pokedex_completion_percentage(user_id)
+    return percentages

@@ -53,3 +53,12 @@ class PokemonService:
     async def get_ordered_pokemon(self, user_id: str):
         user_pokemon = fake_pokemon_db.get(user_id, [])
         return sorted(user_pokemon, key=lambda pokemon: pokemon.pokedex_number)
+    
+    async def get_pokedex_completion_percentage(self, user_id: str) -> dict:
+        unique_pokemon_count = await self.count_unique_pokemon(user_id)
+        unique_percentage = (unique_pokemon_count / 1025) * 100
+        return {
+            "unique_pokemon_count": unique_pokemon_count,
+            "max_pokemon_count": 1025,
+            "unique_pokedex_completion_percentage": unique_percentage
+        }
